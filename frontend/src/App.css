@@ -91,6 +91,7 @@ button:hover {
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
+    background-color: rgba(72, 202, 228, 0.8);
 }
 
 .input-group input.error {
@@ -370,4 +371,205 @@ button:hover {
 
 .error-message button:hover {
     background-color: #d32f2f;
+}
+
+/* Navigation Links */
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Button Styles */
+button, .btn {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+button:active, .btn:active {
+    transform: translateY(1px);
+}
+
+/* Specific Button Styles */
+.new-story-button, .primary-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.new-story-button:hover, .primary-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.new-story-button:active, .primary-button:active {
+    transform: translateY(1px);
+}
+
+.generate-btn {
+    background-color: var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.generate-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.generate-btn:active {
+    transform: translateY(1px);
+}
+
+.option-btn {
+    text-align: left;
+    padding: 1rem;
+    background-color: #f0f7ff;
+    color: var(--text-color);
+    border: 1px solid #d0e0f7;
+    transition: all 0.3s;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.option-btn:hover {
+    background-color: #e0f0ff;
+    transform: translateY(-2px);
+}
+
+.option-btn:active {
+    transform: translateY(0);
+}
+
+.share-btn, .view-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.share-btn:hover, .view-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.share-btn:active, .view-btn:active {
+    transform: translateY(1px);
+}
+
+.home-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #5a6268;
+}
+
+.home-btn:active {
+    transform: translateY(1px);
+}
+
+.reset-btn {
+    background-color: #f0f0f0;
+    color: #666;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reset-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.reset-btn:active {
+    transform: translateY(1px);
+}
+
+.new-story-btn {
+    background-color: var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.new-story-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.new-story-btn:active {
+    transform: translateY(1px);
+}
+
+/* Error Message Button */
+.error-message button {
+    background-color: var(--error-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+}
+
+.error-message button:hover {
+    background-color: #d32f2f;
+}
+
+.error-message button:active {
+    transform: translateY(1px);
 }

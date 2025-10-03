@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 
 function StoryGame({story, onNewStory}) {
     const [currentNodeId, setCurrentNodeId] = useState(null);
@@ -6,6 +7,7 @@ function StoryGame({story, onNewStory}) {
     const [options, setOptions] = useState([])
     const [isEnding, setIsEnding] = useState(false)
     const [isWinningEnding, setIsWinningEnding] = useState(false)
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (story && story.root_node) {
@@ -39,6 +41,10 @@ function StoryGame({story, onNewStory}) {
         if (story && story.root_node) {
             setCurrentNodeId(story.root_node.id)
         }
+    }
+
+    const viewAllStories = () => {
+        navigate("/stories")
     }
 
     return <div className="story-game">
@@ -77,12 +83,13 @@ function StoryGame({story, onNewStory}) {
                 <button onClick={restartStory} className="reset-btn">
                     Restart Story
                 </button>
+                <button onClick={viewAllStories} className="home-btn">
+                    View All Stories
+                </button>
+                {onNewStory && <button onClick={onNewStory} className="new-story-btn">
+                    New Story
+                </button>}
             </div>
-
-            {onNewStory && <button onClick={onNewStory} className="new-story-btn">
-                New Story
-            </button>}
-
         </div>
     </div>
 }

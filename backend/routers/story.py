@@ -120,3 +120,35 @@ def build_complete_story_tree(db: Session, story: Story) -> CompleteStoryRespons
         root_node=node_dict[root_node.id],
         all_nodes=node_dict
     )
+
+
+@router.get("/", response_model=list[CompleteStoryResponse])
+def list_stories(
+        skip: int = 0,
+        limit: int = 10,
+        db: Session = Depends(get_db)
+):
+    """
+    List stories with pagination.
+    """
+    stories = db.query(Story).order_by(Story.created_at.desc()).offset(skip).limit(limit).all()
+
+    result = []
+    for story in stories:
+        try:
+            complete_story = build_complete_story_tree(db, story)
+            result.append(complete_story)
+        except Exception as e:
+            # Skip stories that have issues with their tree structure
+            continue
+
+    return result
+
+
+@router.get("/count")
+def get_stories_count(db: Session = Depends(get_db)):
+    """
+    Get total count of stories.
+    """
+    count = db.query(Story).count()
+    return {"count": count}

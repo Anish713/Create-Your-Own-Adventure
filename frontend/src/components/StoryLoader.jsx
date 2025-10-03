@@ -39,7 +39,11 @@ function StoryLoader() {
     }
 
     const createNewStory = () => {
-        navigate("/")
+        navigate("/create")
+    }
+
+    const viewAllStories = () => {
+        navigate("/stories")
     }
 
     if (loading) {
@@ -51,13 +55,17 @@ function StoryLoader() {
             <div className="error-message">
                 <h2>Story Not Found</h2>
                 <p>{error}</p>
-                <button onClick={createNewStory}>Go to Story Generator</button>
+                <button onClick={createNewStory} className="btn">Create New Story</button>
+                <button onClick={viewAllStories} className="btn" style={{marginLeft: '10px'}}>View All Stories</button>
             </div>
         </div>
     }
 
     if (story) {
         return <div className="story-loader">
+            <div className="story-nav">
+                <button onClick={viewAllStories} className="home-btn">← Back to Stories</button>
+            </div>
             <StoryGame story={story} onNewStory={createNewStory}/>
         </div>
     }

@@ -8,10 +8,12 @@ STORY_PROMPT = """
                 3. Each option should lead to another node with its own options
                 4. Some paths should lead to endings (both winning and losing)
                 5. At least one path should lead to a winning ending
+                6. Winning paths should not be too early
 
                 Story structure requirements:
                 - Each node should have 2-3 options except for ending nodes
-                - The story should be 3-4 levels deep (including root node)
+                - The story should be at least 3-4 levels deep (including root node)
+                - Add more levels if it makes the story interesting
                 - Add variety in the path lengths (some end earlier, some later)
                 - Make sure there's at least one winning path
 

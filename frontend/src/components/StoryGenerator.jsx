@@ -91,10 +91,15 @@ function StoryGenerator() {
         setLoading(false)
     }
 
+    const goToStories = () => {
+        navigate("/stories")
+    }
+
     return <div className="story-generator">
         {error && <div className="error-message">
             <p>{error}</p>
-            <button onClick={reset}>Try Again</button>
+            <button onClick={reset} className="btn">Try Again</button>
+            <button onClick={goToStories} className="btn" style={{marginLeft: '10px'}}>View All Stories</button>
         </div>}
 
         {!jobId && !error && !loading && <ThemeInput onSubmit={generateStory}/>}
