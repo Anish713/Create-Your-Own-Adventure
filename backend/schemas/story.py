@@ -1,11 +1,11 @@
-from typing import Optional, List, Dict
+from typing import List, Optional, Dict
 from datetime import datetime
 from pydantic import BaseModel
 
 
 class StoryOptionsSchema(BaseModel):
     text: str
-    node_id: Optional[str] = None
+    node_id: Optional[int] = None
 
 
 class StoryNodeBase(BaseModel):

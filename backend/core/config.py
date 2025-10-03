@@ -1,15 +1,25 @@
 from typing import List
 from pydantic_settings import BaseSettings
 from pydantic import field_validator
+import os
+
 
 class Settings(BaseSettings):
     API_PREFIX: str = "/api"
     DEBUG: bool = False
 
-    DATABASE_URL: str
+    DATABASE_URL: str = None
+
     ALLOWED_ORIGINS: str = ""
-    OPEN_API_KEY: str = ""
-    GROQ_API_KEY: str = ""
+
+    OPENAI_API_KEY: str
+    OPENAI_CONNECTION_SERVICE_URL: str
+
+    def __init__(self, **values):
+        super().__init__(**values)
+
+        if not self.DEBUG:
+            self.DATABASE_URL = os.getenv("DATABASE_URL")
 
     @field_validator("ALLOWED_ORIGINS")
     def parse_allowed_origins(cls, v: str) -> List[str]:
@@ -19,5 +29,6 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "utf-8"
         case_sensitive = True
+
 
 settings = Settings()
