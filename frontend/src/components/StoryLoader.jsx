@@ -22,16 +22,18 @@ function StoryLoader() {
         setError(null)
 
         try {
+            console.log(`Fetching story with ID: ${storyId}`);
             const response = await axios.get(`${API_BASE_URL}/stories/${storyId}/complete`)
+            console.log('Story response:', response.data);
             setStory(response.data)
             setLoading(false)
         } catch (err) {
+            console.error('Error loading story:', err);
             if (err.response?.status === 404) {
                 setError("Story is not found.")
             } else {
-                setError("Failed to load story")
+                setError(`Failed to load story: ${err.message}`)
             }
-        } finally {
             setLoading(false)
         }
     }
@@ -59,6 +61,8 @@ function StoryLoader() {
             <StoryGame story={story} onNewStory={createNewStory}/>
         </div>
     }
+
+    return null;
 }
 
 export default StoryLoader;

@@ -41,8 +41,8 @@ function StoryGenerator() {
             setJobId(job_id)
             setJobStatus(status)
 
-            pollJobStatus(job_id)
         } catch (e) {
+            console.error('Error generating story:', e);
             setLoading(false)
             setError(`Failed to generate story: ${e.message}`)
         }
@@ -52,6 +52,7 @@ function StoryGenerator() {
         try {
             const response = await axios.get(`${API_BASE_URL}/jobs/${id}`)
             const {status, story_id, error: jobError} = response.data
+            console.log(`Job status: ${status}, Story ID: ${story_id}`);
             setJobStatus(status)
 
             if (status === "completed" && story_id) {
@@ -61,6 +62,7 @@ function StoryGenerator() {
                 setLoading(false)
             }
         } catch (e) {
+            console.error('Error polling job status:', e);
             if (e.response?.status !== 404) {
                 setError(`Failed to check story status: ${e.message}`)
                 setLoading(false)
@@ -72,8 +74,10 @@ function StoryGenerator() {
         try {
             setLoading(false)
             setJobStatus("completed")
+            console.log(`Navigating to story with ID: ${id}`);
             navigate(`/story/${id}`)
         } catch (e) {
+            console.error('Error fetching story:', e);
             setError(`Failed to load story: ${e.message}`)
             setLoading(false)
         }
