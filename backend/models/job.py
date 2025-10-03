@@ -1,11 +1,12 @@
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.sql import func
 
-from backend.db.database import Base
+from db.database import Base
 
 
 class StoryJob(Base):
     __tablename__ = 'story_jobs'
+
     id = Column(Integer, primary_key=True, index=True)
     job_id = Column(String, index=True, unique=True)
     session_id = Column(String, index=True)
