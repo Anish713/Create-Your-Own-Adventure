@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import ThemeInput from "./ThemeInput.jsx";
 import LoadingStatus from "./LoadingStatus.jsx";
+import {API_BASE_URL} from "../util.js";
 
 
 function StoryGenerator() {
@@ -12,8 +13,6 @@ function StoryGenerator() {
     const [jobStatus, setJobStatus] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'
 
     useEffect(() => {
         let pollInterval;

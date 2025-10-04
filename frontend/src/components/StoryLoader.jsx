@@ -3,6 +3,7 @@ import {useParams, useNavigate} from "react-router-dom"
 import axios from 'axios';
 import LoadingStatus from "./LoadingStatus.jsx";
 import StoryGame from "./StoryGame.jsx";
+import {API_BASE_URL} from "../util.js";
 
 
 function StoryLoader() {
@@ -11,8 +12,6 @@ function StoryLoader() {
     const [story, setStory] = useState(null);
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null);
-
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'
 
     useEffect(() => {
         loadStory(id)

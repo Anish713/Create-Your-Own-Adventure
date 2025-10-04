@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://2c063f16-115d-4318-81f7-6b8ce10674ca-dev.e1-us-east-azure.choreoapis.dev/create-your-own-adventure/create-your-own-adv/v1.0/api"
