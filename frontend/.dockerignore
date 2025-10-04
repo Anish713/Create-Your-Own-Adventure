@@ -1,0 +1,20 @@
+# Docker ignore for frontend
+node_modules
+npm-debug.log*
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+.env
+.env.local
+.env.development
+.env.production
+.eslintrc
+.prettierignore
+.prettierrc
+coverage
+dist
+.build
+*.log
+.DS_Store
